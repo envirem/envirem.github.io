@@ -1,0 +1,898 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+	<head>
+		<title>ENVIREM</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="no-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h1 id="logo">ENVIREM</h1>
+							<p><b>ENVI</b>ronmental <b>R</b>asters for <b>E</b>cological <b>M</b>odeling</p>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a class="icon fa-cog" href="#varTable"><span>Variables</span></a></li>
+									<li>
+										<a href="#" class="icon fa-cog"><span>Regions</span></a>
+										<ul style="list-style-type: none;">
+											<li><a href="#Global">Global</a></li>
+											<li><a href="#Africa">Africa</a></li>
+											<li><a href="#Australasia">Australasia</a></li>
+											<li><a href="#Europe">Europe</a></li>
+											<li><a href="#NAmerica">North America</a></li>
+											<li><a href="#SAmerica">South America</a></li>
+											<li><a href="#NewWorld">New World</a></li>
+											<li><a href="#Eurasia">Eurasia</a></li>
+											<li><a href="#Pacific">Pacific</a></li>
+										</ul>
+									</li>
+									<li><a class="icon fa-cog" href="#Rcode"><span>R Code</span></a></li>
+								</ul>
+							</nav>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div id="content">
+
+							<!-- Post -->
+								<article class="box post">
+								<p> <a href="#downloads">Click here to go straight to the Downloads section!</a></p>
+									<header>
+										<h2>Motivation</h2>
+									</header>
+									<p> Environmental variables that are thought to be relevant to species' ecology and geographic distribution are essential for 
+									applications such as species distribution modeling. However, the number of such variables that are available, that span multiple time periods, and that can easily be integrated with other datasets is very limited.</p>
+									<p> With the <b>ENVIREM</b> dataset, we provide a number of climatic and topographic variables that have been described in the literature, and make them available at the same resolutions as are available at <a target="_blank" href="http://worldclim.org/">WorldClim</a>, and for both current and past time periods. Additionally, we provide an R package that makes it possible to generate these variables for other 
+									input datasets, such as future climate scenarios. See the <a href="#Rcode">R Code</a> section below for additional details. </p>
+									
+									<h3>Citation</h3>
+									<p> A manuscript that describes the generation of the ENVIREM dataset, and that provides case studies that demonstrate its value, has been submitted to the journal <em>Ecography</em>. In the meantime, the non-peer-reviewed manuscript has been posted to <a target="_blank" href="http://biorxiv.org/">BioRxiv</a>, an online preprint repository,  and can be found here. </p>
+									<p> This citation information will be updated when the manuscript is accepted in a scientific journal. In the meantime, if you will be using this dataset, please provide acknowledgement by citing the following reference:</p>
+
+									<p> <b> Title, P.O., Bemmels, J.B. 2016. ENVIREM: An expanded set of bioclimatic and topographic variables increases flexibility and improves performance of ecological niche modeling. bioRxiv doi: XXXXXXX. </b></p>
+									<br>
+									<header>
+										<h2 id="varTable">Variables</h2>
+									</header>
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;table-layout: auto;border-spacing:0;margin:0px auto;width:70%}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+									.tg .tg-yw4l{vertical-align:top}
+									</style>
+									<table class="tg">
+									  <tr>
+									    <th class="tg-amwm">variable abbreviation</th>
+									    <th class="tg-amwm">brief description</th>
+									    <th class="tg-amwm">units</th>
+									    <th class="tg-amwm">source</th>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">annualPET</td>
+									    <td class="tg-yw4l">annual potential evapotranspiration: a measure of the ability of the atmosphere to remove water through evapotranspiration processes, given unlimited moisture</td>
+									    <td class="tg-baqh">mm / year</td>
+									    <td class="tg-baqh">A, B</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">aridityIndexThornthwaite</td>
+									    <td class="tg-yw4l">Thornthwaite aridity index: Index of the degree of water deficit below water need</td>
+									    <td class="tg-baqh">-</td>
+									    <td class="tg-baqh">C</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">climaticMoistureIndex</td>
+									    <td class="tg-yw4l">a metric of relative wetness and aridity</td>
+									    <td class="tg-baqh">-</td>
+									    <td class="tg-baqh">D, E</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">continentality</td>
+									    <td class="tg-yw4l">average temp. of warmest month - average temp. of coldest month</td>
+									    <td class="tg-baqh">&#8451</td>
+									    <td class="tg-baqh">F, G</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">embergerQ</td>
+									    <td class="tg-yw4l">Emberger's pluviothermic quotient: a metric that was designed to differentiate among Mediterranean type climates</td>
+									    <td class="tg-baqh">-</td>
+									    <td class="tg-baqh">H</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">growingDegDays0</td>
+									    <td class="tg-yw4l">sum of mean monthly temperature for months with mean temperature greater than 0&#8451 multiplied by number of days</td>
+									    <td class="tg-baqh">-</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">growingDegDays5</td>
+									    <td class="tg-yw4l">sum of mean monthly temperature for months with mean temperature greater than 5&#8451 multiplied by number of days</td>
+									    <td class="tg-baqh">-</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">maxTempColdestMonth</td>
+									    <td class="tg-yw4l">max. temp. of the coldest month</td>
+									    <td class="tg-baqh">&#8451 * 10</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">minTempWarmestMonth</td>
+									    <td class="tg-yw4l">min. temp. of the coldest month</td>
+									    <td class="tg-baqh">&#8451 * 10</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">monthCountByTemp10</td>
+									    <td class="tg-yw4l">count of the number of months with mean temp greater than 10&#8451</td>
+									    <td class="tg-baqh">months</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">PETColdestQuarter</td>
+									    <td class="tg-yw4l">mean monthly PET of coldest quarter</td>
+									    <td class="tg-baqh">mm / month</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">PETDriestQuarter</td>
+									    <td class="tg-yw4l">mean monthly PET of driest quarter</td>
+									    <td class="tg-baqh">mm / month</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">PETseasonality</td>
+									    <td class="tg-yw4l">monthly variability in potential evapotranspiration</td>
+									    <td class="tg-baqh">mm / month</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">PETWarmestQuarter</td>
+									    <td class="tg-yw4l">mean monthly PET of warmest quarter</td>
+									    <td class="tg-baqh">mm / month</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">PETWettestQuarter</td>
+									    <td class="tg-yw4l">mean monthly PET of wettest quarter</td>
+									    <td class="tg-baqh">mm / month</td>
+									    <td class="tg-baqh">I</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">thermInd</td>
+									    <td class="tg-yw4l">compensated thermicity index: sum of mean annual temp., min. temp. of coldest month, max. temp. of the coldest month, x 10, with compensations for better comparability across the globe</td>
+									    <td class="tg-baqh">&#8451</td>
+									    <td class="tg-baqh">F, G</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">tri</td>
+									    <td class="tg-yw4l">terrain roughness index</td>
+									    <td class="tg-baqh">-</td>
+									    <td class="tg-baqh">J</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">topoWet</td>
+									    <td class="tg-yw4l">SAGA-GIS topographic wetness index</td>
+									    <td class="tg-baqh">-</td>
+									    <td class="tg-baqh">K, L</td>
+									  </tr>
+									</table>
+									<br>
+									<h3>References</h3>
+
+									A: Zomer, R.J., Trabucco, A., Bossio, D.A. & Verchot, L.V. (2008). Climate change mitigation: A spatial analysis of global land suitability for clean development mechanism afforestation and reforestation. <em>Agriculture, Ecosystems and Environment</em>, <b>126</b>, 67–80. <br>
+									A: Zomer, R.J., Trabucco, A., Van Straaten, O. & Bossio, D.A. (2006) Carbon, Land and Water: A Global Analysis of the Hydrologic Dimensions of Climate Change Mitigation through Afforestation/Reforestation. Colombo, Sri Lanka. <br>
+									B: Hargreaves, G.L. & Hargreaves, G.H. (1985). Irrigation water requirements for Senegal River basin. <em>Journal of Irrigation and Drainage Engineering</em>, <b>111</b>, 265–275. <br>
+									C: Thornthwaite, C.W. (1948). An approach toward a rational classification of climate. <em>Geographical Review</em>, <b>38</b>, 55–94. <br>
+									D: Willmott, C. & Feddema, J. (1992). A More Rational Climatic Moisture Index. <em>The Professional Geographer</em>, <b>44</b>, 84–88. <br>
+									E: Vörösmarty, C.J., Douglas, E.M., Green, P.A. & Revenga, C. (2005). Geospatial Indicators of Emerging Water Stress: An Application to Africa. <em>Ambio</em>, <b>34</b>, 230–236. <br>
+									F: Sayre, R., Comer, P., Warner, H. & Cress, J. (2009) A new map of standardized terrestrial ecosystems of the conterminous United States: US Geological Survey Professional Paper 1768. Reston, VA. <br>
+									G: Rivas-Martínez, S. & Rivas-Sáenz, S. “Synoptical Worldwide Bioclimatic Classification System”. Available online at http://www.globalbioclimatics.org/ [accessed 15 February 2016] <br>
+									H: Daget, P. (1977). Le bioclimat méditerranéen: analyse des formes climatiques par le système d'Emberger. <em>Vegetatio</em>, <b>32</b>, 87–103. <br>
+									I: Metzger, M.J., Bunce, R.G.H., Jongman, R.H.G., Sayre, R., Trabucco, A. & Zomer, R. (2013). A high-resolution bioclimate map of the world: a unifying framework for global biodiversity research and monitoring (M. Sykes, Ed.). <em>Global Ecology and Biogeography</em>, <b>22</b>, 630–638. <br>
+									J: Wilson, M.F.J., O’Connell, B., Brown, C., Guinan, J.C. & Grehan, A.J. (2007). Multiscale Terrain Analysis of Multibeam Bathymetry Data for Habitat Mapping on the Continental Slope. <em>Marine Geodesy</em>, <b>30</b>, 3–35. <br>
+									K: Boehner, J., Koethe, R. Conrad, O., Gross, J., Ringeler, A. & Selige, T. (2002) Soil regionalization by means of terrain analysis and process parameterization. Soil Classification 2001 European Soil Bureau, Research Report No. 7 (eds Micheli, E., Nachtergaele, F. & Montanarella, L.), pp. 213-222. Luxembourg. <br>
+									L: Conrad, O., Bechtel, B., Bock, M., Dietrich, H., Fischer, E., Gerlitz, L., Wehberg, J., Wichmann, V. & Böhner, J. (2015) System for automated geoscientific analyses (SAGA) v. 2.1.4. <em>Geoscientific Model Development</em> 8, 1991-2007. <br>
+									<br>
+									<hr>
+									<hr>
+									<br>
+									<header>
+										<h2 id="downloads">Downloads</h2>
+									</header>
+									<p> The ENVIREM dataset has been archived at the University of Michigan's <a target="_blank" href="https://deepblue.lib.umich.edu/data/">Deep Blue Data repository</a>. Rasters have been rounded to two decimal places to decrease file size.</p>
+									<p> To make the use of the ENVIREM variables as convenient as possible, we provide these variables in a number of options:
+
+									<ul type='disk'>
+										<li>Spatial resolution</li>
+										<ul> 
+											<li style="list-style-type:disk">30 arc-seconds (~ 1 km, current only) </li>
+											<li>2.5 arc-minutes (~ 5 km) </li>
+											<li>5 arc-minutes (~ 10 km) </li> 
+											<li>10 arc-minutes (~ 20 km) </li>
+										</ul>
+										<li>Time periods</li>
+										<ul>
+											<li> Present (~ 1960 - 1990) </li>
+											<li> Mid-Holocene (~ 6000 years ago) </li>
+											<li> Last Glacial Maximum (LGM, ~ 22000 years ago) </li>
+										</ul>
+										<li> Global circulation models (for past time periods) </li>
+										<ul>
+											<li> CCSM4 </li>
+											<li> MIROC </li>
+											<li> MPI-ESM-P </li>
+										</ul>
+										<li> Geographic regions </li>
+										<ul>
+											<li> Global </li>
+											<li> Africa </li>
+											<li> Australasia </li>
+											<li> Eurasia </li>
+											<li> Europe </li>
+											<li> New World </li>
+											<li> North America </li>
+											<li> South America </li>
+											<li> Pacific </li>
+										</ul>
+										<li> GIS formats </li>
+										<ul>
+											<li> GeoTiff </li>
+											<li> Generic grid </li>
+										</ul>
+									</ul>
+									
+									<p>More information on the different formats available:</p>
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;width:70%}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-94ly{font-family:"Lucida Console", Monaco, monospace !important;;vertical-align:top}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-vkoh{font-family:"Lucida Console", Monaco, monospace !important;}
+									.tg .tg-yw4l{vertical-align:top}
+									</style>
+									<table class="tg">
+									  <tr>
+									    <th class="tg-s6z2">format</th>
+									    <th class="tg-s6z2">extension</th>
+									    <th class="tg-s6z2">description</th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">geotiff</td>
+									    <td class="tg-vkoh">.tif</td>
+									    <td class="tg-031e">single file, smallest uncompressed file size.</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-yw4l">generic grid</td>
+									    <td class="tg-94ly">.bil, .hdr, .prj, .aux.xml</td>
+									    <td class="tg-yw4l">good compressed file size, accepted by the MaxENT standalone program.</td>
+									  </tr>
+									</table>
+
+
+									<br><p> To learn how to generate these variables for other time periods, refer to the <a href="#Rcode">R code</a> section below.</p>
+									<hr>
+									<br>
+									<h3 id="Global">GLOBAL</h3>				
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+									<br>
+									The maps below show the geographic extents of the region specific datasets.
+									<br>
+
+									<br>
+									<h3 id="Africa">AFRICA</h3>			
+									<img src="images/Africa.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+
+									<br>
+									<br>
+									<h3 id="Australasia">AUSTRALASIA</h3>			
+									<img src="images/Australia.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-s6z2"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+
+									<br>
+									<br>
+									<h3 id="Europe">EUROPE</h3>			
+									<img src="images/Europe.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+									<br>
+									<br>
+									<h3 id="NAmerica">NORTH AMERICA</h3>			
+									<img src="images/NAmerica.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+									<br>
+									<br>
+									<h3 id="SAmerica">SOUTH AMERICA</h3>			
+									<img src="images/SAmerica.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+									<br>
+									<br>
+									<h3 id="NewWorld">NEW WORLD</h3>			
+									<img src="images/NewWorld.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+									<br>
+									<br>
+									<h3 id="Eurasia">EURASIA</h3>			
+									<img src="images/Eurasia.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+
+
+									<br>
+									<br>
+									<h3 id="Pacific">PACIFIC</h3>
+									These rasters have a longitude that is centered at 180, rather than at 0.
+									<br>		
+									<img src="images/Pacific.png" alt="" height ="350", width="800">
+
+									<style type="text/css">
+									.tg  {border-collapse:collapse;border-spacing:0;}
+									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+									.tg .tg-s6z2{text-align:center}
+									.tg .tg-baqh{text-align:center;vertical-align:top}
+									.tg .tg-e3zv{font-weight:bold}
+									</style>
+									<table class="tg" style="width:40%">
+									  <tr>
+									    <th class="tg-e3zv">Time Period</th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-031e"></th>
+									    <th class="tg-yw4l"></th>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">current</td>
+									    <td class="tg-s6z2">30 arcsec</td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">mid Holocene</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | CCSM4</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MIROC</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									  <tr>
+									    <td class="tg-031e">LGM | MPI-ESM-P</td>
+									    <td class="tg-031e"></td>
+									    <td class="tg-s6z2">2.5 arcmin</td>
+									    <td class="tg-s6z2">5 arcmin</td>
+									    <td class="tg-s6z2">10 arcmin</td>
+									  </tr>
+									</table>
+									<br><br>
+									<hr><hr>
+									<br><br>
+									<header>
+										<h2 id="Rcode">R CODE</h2>
+									</header>
+
+									<p>The ENVIREM dataset was generated in R and the code to do so has been
+									organized into an <a href="https://cran.r-project.org/web/packages/envirem/index.html" target="_blank">R package on CRAN</a>. Availability of the envirem R package 
+									makes it possible to generate the ENVIREM variables with alternative input
+									datasets, for example for future climate scenarios.</p>
+
+									<p>The required input data consist of monthly rasters of minimum and maximum
+									temperature, precipitation, and extraterrestrial solar radiation. We acquired our temperature
+									and precipitation datasets from <a href="http://www.worldclim.org/" target="_blank">WorldClim</a>
+									 and solar radiation from <a href="http://www.cgiar-csi.org/data/global-aridity-and-pet-database" target="_blank">CGIAR-CSI</a>. </p>
+									 <p> <b><a href="ENVIREM_tutorial.html" target="_blank">A complete start-to-finish tutorial demonstrating how to create these variables from a particular input dataset can be found here</a>. </b></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								</article>
+
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div id="footer" class="container">
+
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-80064314-1', 'auto');
+  ga('send', 'pageview');
+
+</script>	
+</html>
