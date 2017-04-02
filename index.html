@@ -29,20 +29,7 @@
 							<nav id="nav">
 								<ul>
 									<li><a class="icon fa-cog" href="#varTable"><span>Variables</span></a></li>
-									<li>
-										<a href="#" class="icon fa-cog"><span>Regions</span></a>
-										<ul style="list-style-type: none;">
-											<li><a href="#Global">Global</a></li>
-											<li><a href="#Africa">Africa</a></li>
-											<li><a href="#Australasia">Australasia</a></li>
-											<li><a href="#Europe">Europe</a></li>
-											<li><a href="#NAmerica">North America</a></li>
-											<li><a href="#SAmerica">South America</a></li>
-											<li><a href="#NewWorld">New World</a></li>
-											<li><a href="#Eurasia">Eurasia</a></li>
-											<li><a href="#Pacific">Pacific</a></li>
-										</ul>
-									</li>
+									<li><a href="#regions" class="icon fa-cog"><span>Regions</span></a></li>
 									<li><a class="icon fa-cog" href="#Rcode"><span>R Code</span></a></li>
 								</ul>
 							</nav>
@@ -220,9 +207,59 @@
 									<header>
 										<h2 id="downloads">Downloads</h2>
 									</header>
-									<p> <b> The links on this site will go live once the dataset is archived through Deep Blue Data. In the meantime, as a temporary solution, <a target="_blank" href="https://umich.box.com/s/agto46zkl1eksyzorjdvxsps3meq5oya"> all files can be accessed via Box here</a>. The naming convention of the files is explained in <a target="_blank" href="envirem_DeepBlueData_readme.txt"> this readme</a>. </b></p>
-<!--									<p> The ENVIREM dataset has been archived at the University of Michigan's <a target="_blank" href="https://deepblue.lib.umich.edu/data/">Deep Blue Data repository</a>. Rasters have been rounded to two decimal places to decrease file size.</p>
--->										<p> To make the use of the ENVIREM variables as convenient as possible, we provide these variables in a number of options:
+									
+									<p><b> <a target="_blank" href="https://deepblue.lib.umich.edu/data/concern/generic_works/gt54kn05f">The ENVIREM dataset has been archived with the University of Michigan's Deep Blue Data, and all files can be downloaded from that repository</a></b>. You can download the associated readme file <a target="_blank" href="envirem_DeepBlueData_readme.txt">here</a> (although all information can be found on this site). Rasters have been rounded to two decimal places to decrease file size.</p>
+
+									<h3>File naming scheme:</h3>
+
+									<p>Files for download have been carefully named to reflect what specific version of the ENVIREM dataset is contained within the zipped directory. The naming follows the pattern:</p>
+
+									<p>[region] _ [time period] _ [circulation model] _ [resolution] _ [file format].zip</p>
+
+
+									<p>Each downloadable .zip file contains the 16 climatic variables for the specified combination of geographic/temporal/spatial/file-format requested. The exception is the 30 arc-second datasets, which have been split into 4 files to obtain more manageable file sizes. For these split datasets, specific variables are found in the following sets:
+
+
+									<ul type='disk'>
+										<li>Set 1</li>
+										<ul>
+											<li style="list-style-type:disk">annualPET </li>
+											<li>aridityIndexThornthwaite </li>
+											<li>climaticMoistureIndex </li>
+											<li>continentality </li>
+											<li>PETseasonality </li>
+										</ul>
+
+										<li>Set 2</li>
+										<ul>
+											<li>embergerQ </li>
+											<li>growingDegDays0 </li>
+											<li>growingDegDays5 </li>
+											<li>maxTempColdest </li>
+										</ul>
+
+										<li>Set 3</li>
+										<ul>
+											<li>minTempWarmest </li>
+											<li>monthCountByTemp10 </li>
+											<li>PETColdestQuarter </li>
+											<li>PETDriestQuarter </li>
+										</ul>
+
+										<li>Set 4</li>
+										<ul>
+											<li>PETseasonality </li>
+											<li>PETWarmestQuarter </li>
+											<li>PETWettestQuarter </li>
+											<li>thermicityIndex </li>
+										</ul>
+									</ul>
+
+
+									<p>The elevation-derived variables are available as separate downloads, with <b>[elev]</b> preceding the file name.</p>
+
+									<h3>Description of available options</h3>
+									<p> To make the use of the ENVIREM variables as convenient as possible, we provide these variables in a number of options:</p>
 
 									<ul type='disk'>
 										<li>Spatial resolution</li>
@@ -244,7 +281,7 @@
 											<li> MIROC </li>
 											<li> MPI-ESM-P </li>
 										</ul>
-										<li> Geographic regions </li>
+										<li> Geographic regions <a href="#regions">(see below)</a></li>
 										<ul>
 											<li> Global </li>
 											<li> Africa </li>
@@ -296,60 +333,10 @@
 									<br><p> To learn how to generate these variables for other time periods, refer to the <a href="#Rcode">R code</a> section below.</p>
 									<hr>
 									<br>
-									<h3 id="Global">GLOBAL</h3>				
-
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
+								
+									<header>
+										<h2 id="regions">Regions</h2>
+									</header>
 
 									<br>
 									The maps below show the geographic extents of the region specific datasets.
@@ -359,117 +346,12 @@
 									<h3 id="Africa">AFRICA</h3>			
 									<img src="images/Africa.png" alt="" height ="350", width="800">
 
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
-
 
 									<br>
 									<br>
 									<h3 id="Australasia">AUSTRALASIA</h3>			
 									<img src="images/Australia.png" alt="" height ="350", width="800">
 
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-s6z2"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
 
 
 									<br>
@@ -477,291 +359,27 @@
 									<h3 id="Europe">EUROPE</h3>			
 									<img src="images/Europe.png" alt="" height ="350", width="800">
 
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
 
 									<br>
 									<br>
 									<h3 id="NAmerica">NORTH AMERICA</h3>			
 									<img src="images/NAmerica.png" alt="" height ="350", width="800">
 
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
 
 									<br>
 									<br>
 									<h3 id="SAmerica">SOUTH AMERICA</h3>			
 									<img src="images/SAmerica.png" alt="" height ="350", width="800">
 
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
-
 									<br>
 									<br>
 									<h3 id="NewWorld">NEW WORLD</h3>			
 									<img src="images/NewWorld.png" alt="" height ="350", width="800">
 
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
-
 									<br>
 									<br>
 									<h3 id="Eurasia">EURASIA</h3>			
 									<img src="images/Eurasia.png" alt="" height ="350", width="800">
-
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
-
 
 									<br>
 									<br>
@@ -770,64 +388,10 @@
 									<br>		
 									<img src="images/Pacific.png" alt="" height ="350", width="800">
 
-									<style type="text/css">
-									.tg  {border-collapse:collapse;border-spacing:0;}
-									.tg td{font-family:Source Sans Pro, sans-serif;font-size:14px;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg th{font-family:Source Sans Pro, sans-serif;font-size:14px;font-weight:normal;padding:10px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-									.tg .tg-s6z2{text-align:center}
-									.tg .tg-baqh{text-align:center;vertical-align:top}
-									.tg .tg-e3zv{font-weight:bold}
-									</style>
-									<table class="tg" style="width:40%">
-									  <tr>
-									    <th class="tg-e3zv">Time Period</th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-031e"></th>
-									    <th class="tg-yw4l"></th>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">current</td>
-									    <td class="tg-s6z2">30 arcsec</td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">mid Holocene</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | CCSM4</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MIROC</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									  <tr>
-									    <td class="tg-031e">LGM | MPI-ESM-P</td>
-									    <td class="tg-031e"></td>
-									    <td class="tg-s6z2">2.5 arcmin</td>
-									    <td class="tg-s6z2">5 arcmin</td>
-									    <td class="tg-s6z2">10 arcmin</td>
-									  </tr>
-									</table>
-									<br><br>
-									<hr><hr>
-									<br><br>
 									<header>
-										<h2 id="Rcode">R CODE</h2>
+										<h2 id="Rcode">R code</h2>
 									</header>
+
 
 									<p>The ENVIREM dataset was generated in R and the code to do so has been
 									organized into an <a href="https://cran.r-project.org/web/packages/envirem/index.html" target="_blank">R package on CRAN</a>. Availability of the envirem R package 

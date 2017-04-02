@@ -2,3 +2,4 @@
 *.Rapp.history
 .RData
 .Rhistory
+backup/*
